@@ -1,23 +1,21 @@
-import React, { Component } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { RouterService } from "app-services";
+import React, { Component } from "react"
+import { Main } from 'app-components'
+import { RouterService } from 'app-services'
+import { Link } from 'react-router-dom'
 
 export default class App extends Component {
   render() {
     return (
       <section>
-        <Switch>
-          {RouterService.ROUTES.map((route, key) => (
-            <Route
-              key={key}
-              exact={route.exact}
-              path={route.path}
-              component={route.component}
-            />
-          ))}
+        <ul>
+          {
+            RouterService.ROUTES.filter(route => !route.hideOnMenu).map((route, key) =>
+              <Link key={key} to={route.path}>{ route.name }</Link>
+            )
+          }
+        </ul>
 
-          <Redirect from="/" to="/home" />
-        </Switch>
+        <Main />
       </section>
     );
   }

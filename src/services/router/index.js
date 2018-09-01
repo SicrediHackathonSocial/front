@@ -1,7 +1,7 @@
 import {
   LoginPage,
   HomePage
-} from 'am-pages'
+} from 'app-pages'
 
 export class RouterService {
   static ROUTES = [
