@@ -1,4 +1,6 @@
-* {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -21,11 +23,10 @@ a, input, select {
 }
 
 .content {
-  padding-left: var(--defaultSpace);
   transition-property: transform, width;
   transition-duration: .2s;
   will-change: transform;
-  background: #f0f0f0;
+  background: #fff;
   flex: 1;
   width: 100%;
 }
