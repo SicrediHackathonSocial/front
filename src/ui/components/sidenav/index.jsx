@@ -38,8 +38,8 @@ export class Sidenav extends Component {
         <ul>
           {RouterService.ROUTES.filter(route => !route.hideOnMenu).map(
             (route, key) => (
-              <li>
-                <Link key={key} to={route.path}>
+              <li key={key}>
+                <Link to={route.path}>
                   {route.name}
                 </Link>
               </li>
