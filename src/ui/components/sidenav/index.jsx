@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { RouterService } from 'app-services'
-import { Link } from 'react-router-dom'
 import { Image } from 'app-components'
+import { NavButton } from './nav-button'
 
 import './styles.css'
 
@@ -38,11 +38,7 @@ export class Sidenav extends Component {
         <ul>
           {RouterService.ROUTES.filter(route => !route.hideOnMenu).map(
             (route, key) => (
-              <li>
-                <Link key={key} to={route.path}>
-                  {route.name}
-                </Link>
-              </li>
+              <NavButton key={key} to={route.path} activeOnlyWhenExact={route.exact} label={route.name} />
             ),
           )}
         </ul>

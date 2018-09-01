@@ -6,6 +6,13 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+a, input, select {
+  color: inherit;
+  text-decoration: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -30,7 +37,7 @@ body {
 
   transform: translateX(var(--totalSidenav));
   width: calc(100% - var(--totalSidenav));
-} 
+}
 
 */
 

@@ -36,3 +36,7 @@
 .sidenav__toggler svg {
   width: 20px;
 }
+
+.sidenav__menu__item--active {
+  color: red;
+}
