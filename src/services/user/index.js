@@ -8,8 +8,17 @@ export class UserService extends BaseService {
 
   login(loginDto) {
     const promise = axios.post(this.baseUrl + '/login', loginDto)
-    promise.then(token => {
-      localStorage.setItem(this.localStorageAuthLocation, token)
+    promise.then(response => {
+      localStorage.setItem(this.localStorageAuthLocation, response.username)
+    })
+
+    return promise
+  }
+
+  cadastroUser(cadastroDto) {
+    const promise = this.post(cadastroDto)
+    promise.then(response => {
+      localStorage.setItem(this.localStorageAuthLocation, response.username)
     })
 
     return promise

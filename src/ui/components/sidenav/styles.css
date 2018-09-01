@@ -42,3 +42,10 @@
 .sidenav__menu__item--active {
   color: red;
 }
+
+.sidenav__links {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
