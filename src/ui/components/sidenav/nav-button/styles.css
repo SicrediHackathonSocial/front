@@ -3,7 +3,7 @@
     list-style-type: none;
     font-weight: 300;
     font-size: 18px;
-    margin-bottom: 15px;
+    padding: 0 25px 25px;
 }
 
 .sidenav__menu__item.sidenav__menu__item--active {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { RouterService } from 'app-services'
-import { Image } from 'app-components'
+import { Image, Profile } from 'app-components'
 import { NavButton } from './nav-button'
 
 import './styles.css'
@@ -34,7 +34,7 @@ export class Sidenav extends Component {
         <div className="sidenav__toggler">
           <button onClick={() => this.toggleSidenav()}>{this.renderIcon()}</button>
         </div>
-
+        <Profile/>
         <ul className="sidenav__links">
           {RouterService.ROUTES.filter(route => !route.hideOnMenu).map(
             (route, key) => (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import CurrencyInput from 'react-currency-masked-input'
-import { Image } from 'app-components'
+import { Image, Profile } from 'app-components'
 
 import './styles.css'
 
@@ -82,18 +82,7 @@ export class ObjetivoPage extends Component {
   }
 
   renderProfile() {
-    return (
-      <div className="profile">
-        <div
-          className="profile-picture"
-          style={{
-            backgroundImage: `url(${localStorage.getItem('profilePicture')})`,
-          }}
-        />
-
-        <span className="profile-name">Oi, Pedro</span>
-      </div>
-    )
+    return <Profile/>
   }
 
   renderTypeObjective() {
