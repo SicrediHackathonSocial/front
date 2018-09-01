@@ -1,4 +1,5 @@
 export { UserService } from './user'
 export { GoalService } from './goal'
 export { ProjectService } from './project'
+export { FilestackService } from './filestack'
 export { RouterService } from './router'
