@@ -1,39 +1,51 @@
-import axios from "axios";
+import axios from "axios"
 
 export default class BaseService {
   constructor(baseUrl) {
-    this.baseUrl = `http://localhost:3000/${baseUrl}`
+    this.baseUrl = `http://localhost:3000/arc/${baseUrl}`
   }
 
   get(query) {
-    return axios.get(this.baseUrl, query)
+    const config = this.getHeaders()
+    return axios.get(this.baseUrl, query, config)
   }
 
   post(object) {
-    return axios.post(this.baseUrl, object)
+    const config = this.getHeaders()
+    return axios.post(this.baseUrl, object, config, config)
   }
   
   put(object) {
-    return axios.put(this.baseUrl, object)
+    const config = this.getHeaders()
+    return axios.put(this.baseUrl, object, config)
   }
 
   delete(id) {
-    return axios.delete(`${this.baseUrl}/${id}`)
+    const config = this.getHeaders()
+    return axios.delete(`${this.baseUrl}/${id}`, config)
   }
 
   save(object) {
+    const config = this.getHeaders()
     const saveAction = object.id
-      ? axios.put(`${this.baseUrl}/${object.id}`, object)
-      : axios.post(this.baseUrl, object);
+      ? axios.put(`${this.baseUrl}/${object.id}`, object, config)
+      : axios.post(this.baseUrl, object, config)
 
     return saveAction
   }
 
   getById(id) {
-    return axios.get(`${this.baseUrl}/${id}`)
+    const config = this.getHeaders()
+    return axios.get(`${this.baseUrl}/${id}`, config)
   }
 
   rawGet(url, query) {
-    return axios.get(url, query)
+    const config = this.getHeaders()
+    return axios.get(url, query, config)
+  }
+
+  getHeaders() {
+    const username = JSON.parse(localStorage.getItem('auth'))
+    return { headers: { Authorization: username }}
   }
 }
