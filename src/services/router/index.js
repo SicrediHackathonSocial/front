@@ -6,7 +6,7 @@ import {
 export class RouterService {
   static ROUTES = [
     {
-      hideOnMenu: true,
+      hideOnMenu: false,
       name: 'Login',
       path: '/login',
       exact: true,

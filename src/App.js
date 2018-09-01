@@ -10,7 +10,11 @@ export default class App extends Component {
         <ul>
           {
             RouterService.ROUTES.filter(route => !route.hideOnMenu).map((route, key) =>
-              <Link key={key} to={route.path}>{ route.name }</Link>
+              (
+                <li>
+                  <Link key={key} to={route.path}>{ route.name }</Link>
+                </li>
+              )
             )
           }
         </ul>
