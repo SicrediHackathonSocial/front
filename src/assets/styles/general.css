@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  padding-left: var(--defaultSpace);
+  transition-property: transform, width;
+  transition-duration: .2s;
+  will-change: transform;
+  background: #f0f0f0;
+  flex: 1;
+  width: 100%;
+}
+
+/* Descomentar se quiser que o conteúdo seja empurrado quando abrir o menu
+
+.sidenav--visible + .content {
+  --totalSidenav: calc(var(--sidenavWidth));
+
+  transform: translateX(var(--totalSidenav));
+  width: calc(100% - var(--totalSidenav));
+} 
+
+*/
+
+*:focus {
+  outline: none;
+}

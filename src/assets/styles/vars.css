@@ -1,0 +1,9 @@
+:root {
+  --defaultSpace: 20px;
+  --sidenavWidth: 300px;
+  --defaultBoxShadowColor: rgba(0, 0, 0, 0.1);
+
+  --screenSm: 0px;
+  --screenMd: 0px;
+  --screenLg: 0px;
+}
