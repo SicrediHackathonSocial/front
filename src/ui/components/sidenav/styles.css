@@ -4,8 +4,8 @@
   position: fixed;
   background: #fff;
   top: 0;
-  left: 0;
-  transform: translateX(-100%);
+  right: 0;
+  transform: translateX(100%);
   transition-property: transform;
   transition-duration: .2s;
   will-change: transform;
@@ -19,12 +19,13 @@
 
 .sidenav--visible .sidenav__toggler {
   right: 10px;
+  left: unset;
 }
 
 .sidenav__toggler {
   transition-duration: .2s;
   position: absolute;
-  right: -40px;
+  left: -40px;
   top: 20px;
 }
 
