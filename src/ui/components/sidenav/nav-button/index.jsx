@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 
+import './styles.css'
+
 const MenuLink = ({ match, to, label }) => (
   <li
     className={`sidenav__menu__item ${
