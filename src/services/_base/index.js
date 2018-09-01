@@ -1,6 +1,9 @@
 import axios from "axios"
 
 export default class BaseService {
+
+  localStorageAuthLocation = 'auth';
+
   constructor(baseUrl) {
     this.baseUrl = `http://localhost:3000/arc/${baseUrl}`
   }
@@ -12,7 +15,7 @@ export default class BaseService {
 
   post(object) {
     const config = this.getHeaders()
-    return axios.post(this.baseUrl, object, config, config)
+    return axios.post(this.baseUrl, object, config)
   }
   
   put(object) {
@@ -45,7 +48,9 @@ export default class BaseService {
   }
 
   getHeaders() {
-    const username = JSON.parse(localStorage.getItem('auth'))
-    return { headers: { Authorization: username }}
+    const username = JSON.parse(localStorage.getItem(this.localStorageAuthLocation))
+    if (username) {
+      return { headers: { Authorization: username }}
+    }
   }
 }
