@@ -1,6 +1,7 @@
 import {
   LoginPage,
-  HomePage
+  HomePage,
+  ObjetivoPage
 } from 'app-pages'
 
 export class RouterService {
@@ -11,6 +12,13 @@ export class RouterService {
       path: '/login',
       exact: true,
       component: LoginPage
+    },
+    {
+      name: 'Objetivo',
+      path: '/objetivo',
+      icon: 'Objetivo',
+      exact: true,
+      component: ObjetivoPage
     },
     {
       name: 'Home',
