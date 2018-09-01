@@ -1,6 +1,8 @@
 import BaseService from '../_base'
 import axios from "axios"
 
+const localStorageUserLocation = 'userLogado'
+
 export class UserService extends BaseService {
   constructor() {
     super('user')
@@ -23,4 +25,11 @@ export class UserService extends BaseService {
 
     return promise
   }
+
+  static getUserLogado() {
+    const userString = localStorage.getItem(localStorageUserLocation)
+    return JSON.parse(userString)
+  }
+
+
 }

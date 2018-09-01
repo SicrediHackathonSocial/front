@@ -8,10 +8,14 @@ import './assets/styles/normalize.css'
 import './assets/styles/vars.css'
 import './assets/styles/general.css'
 
-localStorage.setItem('profilePicture', 'https://static.noticiasaominuto.com.br/stockimages/1920/naom_5a7b1d449168e.jpg?1531755455')
+localStorage.setItem('userLogado', JSON.stringify({ 
+    picture: 'https://static.noticiasaominuto.com.br/stockimages/1920/naom_5a7b1d449168e.jpg?1531755455',
+    username: 'Pedro' 
+  })
+)
 
-ReactDOM.render((
-  <BrowserRouter>
+  ReactDOM.render((
+    <BrowserRouter>
     <App />
   </BrowserRouter>
 ), document.getElementById('root'))

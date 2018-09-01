@@ -1,16 +1,35 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { UserService } from 'app-services'
 
 import './styles.css'
 
-export const Profile = () => (
-    <div className="profile">
+
+export class Profile extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      user: {}
+    }
+  }
+
+  componentWillMount() {
+    const user = UserService.getUserLogado()
+    this.setState({ user })
+  }
+
+
+  render() {
+    return (
+      <div className="profile">
         <div
           className="profile-picture"
           style={{
-            backgroundImage: `url(${localStorage.getItem('profilePicture')})`,
+            backgroundImage: `url(${this.state.user.picture})`,
           }}
-        />
-
-        <span className="profile-name">Oi, Pedro</span>
-    </div>
-)
+          />
+        <span className="profile-name">Oi, {this.state.user.username}</span>
+      </div>
+    )
+  }
+}
