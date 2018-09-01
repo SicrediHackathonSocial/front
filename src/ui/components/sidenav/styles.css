@@ -5,7 +5,6 @@
   background: #fff;
   top: 0;
   left: 0;
-  box-shadow: 10px 0 10px var(--defaultBoxShadowColor);
   transform: translateX(-100%);
   transition-property: transform;
   transition-duration: .2s;
@@ -14,7 +13,7 @@
 }
 
 .sidenav--visible {
-  transform: translateX(0);
+  transform: translateX(0); 
   box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.4);
 }
 
