@@ -182,3 +182,13 @@
   background: #aaa;
   pointer-events: none;
 }
+
+::-webkit-input-placeholder {
+  color: #CFCFCF;
+}
+
+.back-step-button {
+  position: absolute;
+  left: 10px;
+  top: -42px;
+}

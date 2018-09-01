@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CurrencyInput from 'react-currency-masked-input'
+import { Image } from 'app-components'
 
 import './styles.css'
 
@@ -111,6 +112,7 @@ export class ObjetivoPage extends Component {
               onChange={e => this.inputChanged(e)}
               className="question-input"
               maxLength="60"
+              placeholder="Ex: Comprar um carro"
             />
             <div className="question-input-length">
               {this.state.objectiveName.length}
@@ -140,6 +142,7 @@ export class ObjetivoPage extends Component {
               maxLength="9"
               value={this.state.objectiveValue}
               onChange={(e, m) => this.inputChanged(e, m)}
+              placeholder="1.000"
             />
           </div>
         </div>
@@ -212,6 +215,14 @@ export class ObjetivoPage extends Component {
     })
   }
 
+  backStep() {
+    const questionStep = this.state.questionStep - 1
+
+    this.setState({
+      questionStep,
+    })
+  }
+
   checkNextStepEnabled() {
     switch (this.state.questionStep) {
       case 1:
@@ -230,6 +241,14 @@ export class ObjetivoPage extends Component {
   render() {
     return (
       <section className="page-objetivo">
+        {
+          this.state.questionStep > 1 && (
+            <button className="back-step-button" onClick={() => this.backStep()}>
+              {Image.ICONS.Back}
+            </button>
+          )
+        }
+
         {this.renderQuestion()}
 
         <div className="footer">
@@ -242,7 +261,7 @@ export class ObjetivoPage extends Component {
             className={`button-footer ${this.checkNextStepEnabled() &&
               'button-footer--disabled'}`}
           >
-            próximo
+            {this.state.questionStep !== 4 ? 'próximo' : 'pronto'}
           </button>
         </div>
       </section>
