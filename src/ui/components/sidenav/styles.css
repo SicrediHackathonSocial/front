@@ -30,7 +30,8 @@
 
 .sidenav__toggler button { 
   background: none;
-  border: none
+  border: none;
+  cursor: pointer;
 }
 
 .sidenav__toggler svg {
