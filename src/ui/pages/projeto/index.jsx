@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CurrencyInput from 'react-currency-masked-input'
 import { Image } from 'app-components'
 import { ProjectService, GoalService } from 'app-services'
+import { Redirect } from 'react-router-dom'
 
 import './styles.css'
 
@@ -374,7 +375,11 @@ export class ProjetoPage extends Component {
 
       return this.goalService.save({idProject: result.data.idProject, goals: newGoals})
     })
-    .then(result => console.log(result))
+    .then(result => {
+      this.setState({
+        redirect: true
+      })
+    })
   }
 
   backStep() {
@@ -407,6 +412,10 @@ export class ProjetoPage extends Component {
   }
 
   render() {
+    if(this.state.redirect) {
+      return <Redirect to="/meus-objetivos" />
+    }
+
     return (
       <section className="page-objetivo">
         {
