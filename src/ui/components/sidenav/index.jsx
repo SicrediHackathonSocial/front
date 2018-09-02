@@ -25,17 +25,21 @@ export class Sidenav extends Component {
   componentDidMount() {
     EventEmitter.on('USER_LOGIN', () => {
       this.setState({
+        open: false,
+        redirectLogout: false,
         userLogged: true
       })
     })
 
     EventEmitter.on('USER_LOGOUT', () => {
       this.setState({
+        open: false,
         userLogged: false
       })
     })
 
     EventEmitter.on('CHANGE_PAGE_TITLE', () => {
+      debugger
       this.hideSidenav()
     })
   }

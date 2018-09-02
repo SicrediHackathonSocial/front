@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { UserService } from 'app-services'
 
+import EventEmitter from 'sm-event-emitter'
+
 import './styles.css'
 
 
@@ -18,6 +20,12 @@ export class Profile extends Component {
     this.setState({ user })
   }
 
+  componentDidMount() {
+    EventEmitter.on('USER_LOGIN', () => {
+      const user = UserService.getUserLogado()
+      this.setState({ user })
+    })
+  }
 
   render() {  
     return (
@@ -25,10 +33,10 @@ export class Profile extends Component {
         <div
           className="profile-picture"
           style={{
-            backgroundImage: `url(${this.state.user.picture})`,
+            backgroundImage: `url(${this.state.user && this.state.user.picture})`,
           }}
           />
-        <span className="profile-name">Oi, {this.state.user.username}</span>
+        <span className="profile-name">Oi, {this.state.user && this.state.user.username}</span>
       </div>
     )
   }
