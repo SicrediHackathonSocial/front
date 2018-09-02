@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CurrencyInput from 'react-currency-masked-input'
 import { Image } from 'app-components'
+import { ProjectService } from 'app-services'
 
 import './styles.css'
 
@@ -10,13 +11,15 @@ export class ProjetoPage extends Component {
 
     this.state = {
       questionStep: 1,
-      description: '',
+      title: '',
       goals: [],
-      goalDescription: '',
+      goalTitle: '',
       goalValue: null,
       type: 'PRIVATE',
       visibility: 'PRIVATE'
     }
+
+    this.projectService = new ProjectService()
   }
 
   renderSelectProjectType() {
@@ -108,16 +111,16 @@ export class ProjetoPage extends Component {
 
           <div className="question-input-group">
             <input
-              name="description"
+              name="title"
               type="text"
-              value={this.state.description}
+              value={this.state.title}
               onChange={e => this.inputChanged(e)}
               className="question-input"
               maxLength="60"
               placeholder="ex: comprar uma casa nova"
             />
             <div className="question-input-length">
-              {this.state.description.length}
+              {this.state.title.length}
               /60
             </div>
           </div>
@@ -129,7 +132,7 @@ export class ProjetoPage extends Component {
   renderProjectValue() {
     return (
       <div>
-        <div className="project-name">{this.state.description}</div>
+        <div className="project-name">{this.state.title}</div>
 
         <div className="question">
           <div className="question-label">
@@ -157,7 +160,7 @@ export class ProjetoPage extends Component {
       <div className="objectives">
         {
           this.state.goals.map((goal, k) => (
-            <div className="objective">
+            <div key={k} className="objective">
               <div className="objective-index">{k + 1}</div>
 
               <div className="objective-sumary">
@@ -174,7 +177,7 @@ export class ProjetoPage extends Component {
   renderGoalValue() {
     return (
       <div>
-        <div className="project-name">{this.state.description}</div>
+        <div className="project-name">{this.state.title}</div>
 
         { this.renderObjectives() }
 
@@ -199,10 +202,10 @@ export class ProjetoPage extends Component {
     )
   }
 
-  renderGoalDescription() {
+  renderGoalTitle() {
     return (
       <div>
-        <div className="project-name">{this.state.description}</div>
+        <div className="project-name">{this.state.title}</div>
 
         { this.renderObjectives() }
 
@@ -217,16 +220,16 @@ export class ProjetoPage extends Component {
 
           <div className="question-input-group">
             <input
-              name="goalDescription"
+              name="goalTitle"
               type="text"
-              value={this.state.goalDescription}
+              value={this.state.goalTitle}
               onChange={e => this.inputChanged(e)}
               className="question-input"
               maxLength="60"
               placeholder="ex: pagar a entrada da casa nova"
             />
             <div className="question-input-length">
-              {this.state.goalDescription.length}
+              {this.state.goalTitle.length}
               /60
             </div>
           </div>
@@ -238,10 +241,13 @@ export class ProjetoPage extends Component {
   renderWhoWillSeeProject() {
     return (
       <div>
-        <div className="project-name">{this.state.description}</div>
+        <div className="project-name">{this.state.title}</div>
 
         <div className="project-goal">
-          <div className="goals-length">{this.state.goals.length} objetivos</div>
+          <div className="goals-length">
+            {this.state.goals.length}&nbsp;
+            {this.state.goals.length > 1 ? 'objetivos' : 'objetivo'}
+            </div>
           <div>Total de <span>R$ {this.state.goals.reduce((a, i) => a += parseFloat(i.target.replace(',', '.')), 0).toString().replace('.', ',')}</span></div>
         </div>
 
@@ -285,7 +291,7 @@ export class ProjetoPage extends Component {
       case 2:
         return this.renderTypeProject()
       case 3:
-        return this.renderGoalDescription()
+        return this.renderGoalTitle()
       case 4:
         return this.renderGoalValue()
       case 10:
@@ -301,7 +307,7 @@ export class ProjetoPage extends Component {
     if(this.state.questionStep === 10) {
       const questionStep = this.state.questionStep + 1
       const newGoal = {
-        title: this.state.description,
+        title: this.state.title,
         target: this.state.goalValue
       }
 
@@ -320,7 +326,7 @@ export class ProjetoPage extends Component {
     if(this.state.questionStep === 4) {
       const questionStep = 3
       const newGoal = {
-        title: this.state.goalDescription,
+        title: this.state.goalTitle,
         target: this.state.goalValue
       }
 
@@ -331,7 +337,7 @@ export class ProjetoPage extends Component {
         goals,
         customNextStep: null,
         questionStep,
-        goalDescription: '',
+        goalTitle: '',
         goalValue: null
       })
 
@@ -339,7 +345,8 @@ export class ProjetoPage extends Component {
     }
 
     if(this.state.questionStep === 11) {
-      console.log(this.state.goals)
+      this.saveProject()
+
       return
     }
 
@@ -347,6 +354,19 @@ export class ProjetoPage extends Component {
 
     this.setState({
       questionStep,
+    })
+  }
+
+  saveProject() {
+    const obj = {
+      title: this.state.title,
+      description: '',
+      type: this.state.type
+    }
+
+    this.projectService.save(obj)
+    .then(result => {
+      console.log(result)
     })
   }
 
@@ -369,9 +389,9 @@ export class ProjetoPage extends Component {
       case 1:
         return !this.state.type
       case 2:
-        return !this.state.description
+        return !this.state.title
       case 3:
-        return !this.state.goalDescription
+        return !this.state.goalTitle
       case 4:
         return !this.state.goalValue
       default:
