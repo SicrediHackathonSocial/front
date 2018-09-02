@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { DetalhePrincipal, SubObjetivos, Image } from 'app-components'
+import { DetalhePrincipal, SubObjetivos, Image, Contribuidores } from 'app-components'
 import { Redirect } from 'react-router-dom'
 
 import './styles.css'
@@ -43,6 +43,9 @@ export class DetalheObjetivoPage extends Component {
         <DetalhePrincipal project={this.state.project} />
 
         <SubObjetivos project={this.state.project} />
+
+          
+        <Contribuidores project={this.state.project} />
 
       </section>
     )

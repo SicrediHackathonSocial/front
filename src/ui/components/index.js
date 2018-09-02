@@ -10,3 +10,4 @@ export { DetalhePrincipal } from './objetivos/detalhe-objetivo/detalhe-principal
 export { SubObjetivos } from './objetivos/detalhe-objetivo/sub-objetivos'
 export { SubObjetivoCompleto } from './objetivos/detalhe-objetivo/sub-objetivos/sub-objetivo-completo'
 export { SubObjetivoPendente } from './objetivos/detalhe-objetivo/sub-objetivos/sub-objetivo-pendente'
+export { Contribuidores } from './objetivos/detalhe-objetivo/contribuidores'
