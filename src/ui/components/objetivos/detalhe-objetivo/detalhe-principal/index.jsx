@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { ProjectService, UserService } from 'app-services'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
+import EventEmitter from 'sm-event-emitter'
+
 import './styles.css'
 
 const styleContribuition = (percentage) => ({
@@ -28,6 +30,7 @@ export class DetalhePrincipal extends Component {
 
         this.projectService = new ProjectService()
         this.userService = new UserService()
+        this.eventId
     }
 
     componentDidMount() {
@@ -36,6 +39,21 @@ export class DetalhePrincipal extends Component {
                const x = response.data.date.split('-');
                this.setState({ estimate: `${x[2]}/${x[1]}/${x[0]}` })
             })
+
+        this.eventId = EventEmitter.on('REACHED_VALUE_CHANGED', value => {
+            const newValue = this.state.project.reached + value
+
+            this.setState({
+                project: {
+                    ...this.state.project,
+                    reached: newValue
+                }
+            })
+        })
+    }
+
+    componentWillUnmount() {
+        EventEmitter.remove(this.eventId)
     }
 
     share() {
