@@ -33,6 +33,12 @@ export class RouterService {
       exact: true,
       hideOnMenu: true,
       component: ObjetivosCompartilhadosPage
+    },
+    {
+      name: 'Fale Conosco',
+      path: '/fale-conosco',
+      exact: true,
+      component: MeusObjetivosPage
     }
   ]
 }
