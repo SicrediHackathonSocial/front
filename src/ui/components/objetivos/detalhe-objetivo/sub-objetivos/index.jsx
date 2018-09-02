@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { SubObjetivoCompleto, SubObjetivoPendente } from 'app-components'
 
+import EventEmitter from 'sm-event-emitter'
+
 import './styles.css'
 
 export class SubObjetivos extends Component {
@@ -10,6 +12,29 @@ export class SubObjetivos extends Component {
         this.state = {
             project: this.props.project
         };
+
+        this.eventId
+    }
+
+    componentWillMount() {
+        this.eventId = EventEmitter.on('GOAL_STATUS', ({ goalId, goalStatus }) => {
+            const goal = this.state.project.goals.find(g => g.id === goalId)
+            const index = this.state.project.goals.indexOf(goal)
+            const goals = this.state.project.goals
+
+            goals[index].status = goalStatus
+
+            this.setState({
+                project: {
+                    ...this.state.project,
+                    goals
+                }
+            })
+        })
+    }
+
+    componentWillUnmount() {
+        EventEmitter.remove(this.eventId)
     }
 
     renderPendentes() {

@@ -47,7 +47,7 @@ export class SubObjetivoPendente extends Component {
     this.goalService.inserirValor({
         idGoal: this.state.goal.id, 
         value: this.state.goalValue 
-    }).then(() => {
+    }).then((result) => {
         const parsedValue = parseFloat(this.state.goalValue.replace(',', '.'))
 
         this.setState({
@@ -59,6 +59,10 @@ export class SubObjetivoPendente extends Component {
         })
 
         EventEmitter.emit('REACHED_VALUE_CHANGED', parsedValue)
+        EventEmitter.emit('GOAL_STATUS', {
+            goalId: this.state.goal.id,
+            goalStatus: result.data.goalStatus
+        })
     })
   }
 
