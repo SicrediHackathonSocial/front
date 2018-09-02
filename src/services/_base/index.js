@@ -4,7 +4,7 @@ export default class BaseService {
   localStorageAuthLocation = 'auth'
 
   constructor(baseUrl) {
-    this.baseUrl = `http://localhost:3000/arc/${baseUrl}`
+    this.baseUrl = `http://localhost:8080/arc/${baseUrl}`
   }
 
   get(query) {
@@ -47,9 +47,7 @@ export default class BaseService {
   }
 
   getHeaders() {
-    const username = JSON.parse(
-      localStorage.getItem(this.localStorageAuthLocation),
-    )
+    const username = localStorage.getItem(this.localStorageAuthLocation)
     if (username) {
       return { headers: { Authorization: username } }
     }

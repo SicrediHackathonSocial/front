@@ -26,17 +26,17 @@ export class UserService extends BaseService {
 
   projetosPorUsuario(username) {
     const config = this.getHeaders()
-    axios.get(this.baseUrl+'projects/public/'+username, config)
+    return axios.get(this.baseUrl+'/projects/public/'+username, config)
   }
 
   projetosDoUsuario() {
     const config = this.getHeaders()
-    axios.get(this.baseUrl+'projects', config)
+    return axios.get(this.baseUrl+'/projects', config)
   }
 
   projetosCompartilhadosComUsuario() {
     const config = this.getHeaders()
-    axios.get(this.baseUrl+'projects/shared', config)
+    return axios.get(this.baseUrl+'/projects/shared', config)
   }
 
   setUserLocalStorage(user) {
