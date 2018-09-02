@@ -6,6 +6,10 @@ import './styles.css'
 export class SubObjetivos extends Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            project: this.props.project
+        };
     }
 
     render() {
@@ -15,7 +19,10 @@ export class SubObjetivos extends Component {
 
                 <div className="sub-objetivos-pendentes">
                     <h3 className="sub-objetivos-pendentes-titulo">Pendentes</h3>
-                    <SubObjetivoPendente />
+                    {
+                        this.state.project.goals.map((goal, key) => 
+                            <SubObjetivoPendente key={key} project={this.state.project} goal={goal} />)
+                    } 
                 </div>
 
                 <div className="sub-objetivos-completos">

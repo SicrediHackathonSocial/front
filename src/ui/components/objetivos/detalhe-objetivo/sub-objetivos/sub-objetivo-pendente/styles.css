@@ -2,6 +2,14 @@
     width: 100%;
 }
 
+.sub-objetivo-progress-wrapper {
+    border-radius: 8px;
+    display: flex;
+    background: #ededed;
+    margin: 0 1px;
+    width: 100%;
+}
+
 .sub-objetivo-progress {
     width: 70%;
     height: 3px;
