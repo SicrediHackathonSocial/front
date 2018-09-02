@@ -12,7 +12,7 @@ export class UserService extends BaseService {
   login(userDto) {
     const promise = axios.post(this.baseUrl + '/login', userDto)
     promise.then(response => {
-      this.setTokenSeguranca(response)
+      this.setTokenSeguranca(userDto)
       this.setUserLocalStorage(userDto)
     })
 
@@ -57,7 +57,7 @@ export class UserService extends BaseService {
   }
 
   setTokenSeguranca(token) {
-    localStorage.setItem(this.localStorageAuthLocation, token)
+    localStorage.setItem(this.localStorageAuthLocation, token.username)
   }
 
   static getUserLogado() {
