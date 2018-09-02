@@ -39,7 +39,6 @@ export class Sidenav extends Component {
     })
 
     EventEmitter.on('CHANGE_PAGE_TITLE', () => {
-      debugger
       this.hideSidenav()
     })
   }

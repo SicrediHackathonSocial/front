@@ -12,12 +12,10 @@ export class UserService extends BaseService {
   login(userDto) {
     const promise = axios.post(this.baseUrl + '/login', userDto)
     promise.then(response => {
-      this.setTokenSeguranca(response)
+      this.setTokenSeguranca(userDto.username)
       this.setUserLocalStorage(userDto)
     })
 
-    EventEmitter.emit('USER_LOGIN')
-    
     return promise
   }
 
