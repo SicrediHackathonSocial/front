@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import { ObjetivosUsuario, Image } from 'app-components'
 
+import EventEmitter from 'sm-event-emitter'
+
 import { Route, Link } from 'react-router-dom'
 
 import './styles.css'
+
+const emitChangePage = label => {
+  EventEmitter.emit('CHANGE_PAGE_TITLE', label)
+}
 
 export class MeusObjetivosPage extends Component {
   render() {
@@ -17,7 +23,7 @@ export class MeusObjetivosPage extends Component {
               path="/meus-objetivos"
               exact={true}
               children={({ match }) => (
-                <Link to="/meus-objetivos" label={this.props.label}>
+                <Link onClick={() => emitChangePage("Meus projetos")} to="/meus-objetivos" label={this.props.label}>
                   <div className={match && 'footer-item--active'}>
                     { Image.ICONS.Profile }
                     <span>Meus projetos</span>
@@ -31,7 +37,7 @@ export class MeusObjetivosPage extends Component {
               path="/objetivos-compartilhados"
               exact={true}
               children={({ match }) => (
-                <Link match={match} to="/objetivos-compartilhados" label={this.props.label}>
+                <Link onClick={() => emitChangePage("Compartilhados")} match={match} to="/objetivos-compartilhados" label={this.props.label}>
                   <div className={match && 'footer-item--active'}>
                     { Image.ICONS.Profile }
                     <span>Compartilhados</span>
@@ -45,7 +51,7 @@ export class MeusObjetivosPage extends Component {
               path="/meus-projetos"
               exact={true}
               children={({ match }) => (
-                <Link match={match} to="/meus-projetos" label={this.props.label}>
+                <Link onClick={() => emitChangePage("ONGs")} match={match} to="/meus-projetos" label={this.props.label}>
                   <div className={match && 'footer-item--active'}>
                     { Image.ICONS.Profile }
                     <span>ONGs</span>

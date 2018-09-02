@@ -8,14 +8,14 @@ import {
 export class RouterService {
   static ROUTES = [
     {
-      hideOnMenu: false,
+      hideOnMenu: true,
       name: 'Login',
       path: '/login',
       exact: true,
       component: LoginPage
     },
     {
-      name: 'Projeto',
+      name: 'Novo Projeto',
       path: '/projeto',
       icon: 'Projeto',
       exact: true,
@@ -25,12 +25,14 @@ export class RouterService {
       name: 'Meus Objetivos',
       path: '/meus-objetivos',
       exact: true,
+      hideOnMenu: true,
       component: MeusObjetivosPage
     },
     {
       name: 'Objetivos Compartilhados',
       path: '/objetivos-compartilhados',
       exact: true,
+      hideOnMenu: true,
       component: ObjetivosCompartilhadosPage
     }
   ]

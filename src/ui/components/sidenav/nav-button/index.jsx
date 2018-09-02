@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 
+import EventEmitter from 'sm-event-emitter'
+
 import './styles.css'
+
+const emitChangePage = label => {
+  EventEmitter.emit('CHANGE_PAGE_TITLE', label)
+}
 
 const MenuLink = ({ match, to, label }) => (
   <li
@@ -9,7 +15,7 @@ const MenuLink = ({ match, to, label }) => (
       match ? 'sidenav__menu__item--active' : ''
     }`}
   >
-    <Link to={to}>
+    <Link onClick={() => emitChangePage(label)} to={to}>
       <span className="sidenav__menu__item__link">{label}</span>
     </Link>
   </li>
