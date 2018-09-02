@@ -13,7 +13,7 @@ export const ObjetivoUsuarioItem = ({ totalPercentage, titulo, objetivos }) => {
     return (
         <div className="card-usuario-item">
             <div className="card-percentage">
-                <p className="card-percentage__value">78%</p>
+                <p className="card-percentage__value">{totalPercentage.toString().substr(0, 4)}%</p>
                 <p className="card-percentage__text">Completo</p>
             </div>
             <div className="card-data">
