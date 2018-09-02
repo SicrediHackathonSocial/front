@@ -19,7 +19,7 @@ export class Profile extends Component {
   }
 
 
-  render() {
+  render() {  
     return (
       <div className="profile">
         <div
