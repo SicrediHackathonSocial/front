@@ -20,17 +20,17 @@ export class SubObjetivos extends Component {
                 <div className="sub-objetivos-pendentes">
                     <h3 className="sub-objetivos-pendentes-titulo">Pendentes</h3>
                     {
-                        this.state.project.goals.map((goal, key) => 
+                        this.state.project.goals.filter(g => g.status === 'EM_ANDAMENTO').map((goal, key) => 
                             <SubObjetivoPendente key={key} project={this.state.project} goal={goal} />)
                     } 
                 </div>
 
                 <div className="sub-objetivos-completos">
                     <h3 className="sub-objetivos-completos-titulo">Completos</h3>
-                    <SubObjetivoCompleto />
-                    <SubObjetivoCompleto />
-                    <SubObjetivoCompleto />
-                    <SubObjetivoCompleto />
+                    {
+                        this.state.project.goals.filter(g => g.status === 'CONCLUIDO').map((goal, key) => 
+                            <SubObjetivoCompleto key={key} project={this.state.project} goal={goal} />)
+                    } 
                 </div>
             </div>
         )
