@@ -24,3 +24,50 @@
 .toggle__tipos-objetivo .toggle__tipos-objetivo-item:last-child {
     border-radius:  0 6px 6px 0;
 }
+
+.home-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: #fff;
+    box-shadow: 0 -4px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.home-footer .footer-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.home-footer .footer-item a div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+}
+
+.home-footer .footer-item svg {
+    stroke: #003049;
+}
+
+.home-footer .footer-item--active svg {
+    fill: #2EC4B6;
+    stroke: #2EC4B6;
+}
+
+.home-footer .footer-item--active {
+    color: #2EC4B6;
+}
+
+.home-footer .footer-item span {
+    margin-top: 5px;
+}
