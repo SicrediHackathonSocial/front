@@ -1,0 +1,23 @@
+.card-usuario-item {
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.card-usuario-item .card-usuario-item__titulo {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.card-usuario-item .card-usuario-item__objetivos {
+    display: flex;
+}
+
+.card-usuario-item .objetivo__projeto {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 3px;
+    width: 100%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}

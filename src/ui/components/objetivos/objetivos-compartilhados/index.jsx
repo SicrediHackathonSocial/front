@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { ObjetivoUsuarioItem } from 'app-components'
 
 export class ObjetivosCompartilhados extends Component {
     // constructor(props) {
@@ -6,6 +7,11 @@ export class ObjetivosCompartilhados extends Component {
     // }
 
     render() {
-        return <h1>objetivos compartilhados</h1>
+        return (
+            <div className="objetivos">
+                <ObjetivoUsuarioItem titulo="Viagem dos amigos" objetivos={[1, 2]}/>    
+                <ObjetivoUsuarioItem titulo="Churrasco domingo" objetivos={[1, 2, 3, 4]}/>    
+            </div>
+        )
     }
 }
