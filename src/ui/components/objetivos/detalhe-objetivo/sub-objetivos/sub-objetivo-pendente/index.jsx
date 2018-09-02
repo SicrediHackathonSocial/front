@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { GoalService } from 'app-services'
 import CurrencyInput from 'react-currency-masked-input'
 
 import './styles.css'
@@ -22,6 +23,7 @@ export class SubObjetivoPendente extends Component {
     constructor(props) {
         super(props)
 
+        this.goalService = new GoalService()
         this.state = {
             project: this.props.project,
             goal: this.props.goal,
@@ -72,7 +74,7 @@ export class SubObjetivoPendente extends Component {
                         />
                     </div>
                     <div className="button-holder">
-                        <button className="button-conf">confirmar</button>
+                        <button className="button-conf" onClick={() => this.goalService.inserirValor({idGoal: this.state.goal.id, value: this.state.goalValue }) }>confirmar</button>
                     </div>
                 </div>
             </div>
