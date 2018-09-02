@@ -47,9 +47,7 @@ export default class BaseService {
   }
 
   getHeaders() {
-    const username = JSON.parse(
-      localStorage.getItem(this.localStorageAuthLocation),
-    )
+    const username = localStorage.getItem(this.localStorageAuthLocation)
     if (username) {
       return { headers: { Authorization: username } }
     }

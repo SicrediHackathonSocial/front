@@ -3,7 +3,7 @@ import axios from "axios"
 
 export class GoalService extends BaseService {
   constructor() {
-    super('goal')
+    super('goals')
   }
 
   inserirValor(inserirValorDto) {

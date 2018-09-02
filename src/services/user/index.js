@@ -5,7 +5,7 @@ const localStorageUserLocation = 'userLogado'
 
 export class UserService extends BaseService {
   constructor() {
-    super('user')
+    super('users')
   }
 
   login(userDto) {
@@ -22,6 +22,21 @@ export class UserService extends BaseService {
     const promise = this.post(userDto)
     promise.then(() => this.login(userDto))
     return promise
+  }
+
+  projetosPorUsuario(username) {
+    const config = this.getHeaders()
+    return axios.get(this.baseUrl+'/projects/public/'+username, config)
+  }
+
+  projetosDoUsuario() {
+    const config = this.getHeaders()
+    return axios.get(this.baseUrl+'/projects', config)
+  }
+
+  projetosCompartilhadosComUsuario() {
+    const config = this.getHeaders()
+    return axios.get(this.baseUrl+'/projects/shared', config)
   }
 
   setUserLocalStorage(user) {
