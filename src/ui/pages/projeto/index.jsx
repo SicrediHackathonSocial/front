@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CurrencyInput from 'react-currency-masked-input'
 import { Image } from 'app-components'
-import { ProjectService, GoalService } from 'app-services'
+import { ProjectService, GoalService, UserService } from 'app-services'
 import { Redirect } from 'react-router-dom'
 
 import './styles.css'
@@ -98,7 +98,7 @@ export class ProjetoPage extends Component {
           }}
         />
 
-        <span className="profile-name">Oi, Pedro</span>
+        <span className="profile-name">Oi, {UserService.getUserLogado().username}</span>
       </div>
     )
   }
