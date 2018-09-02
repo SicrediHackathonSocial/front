@@ -1,4 +1,6 @@
 .objetivos {
     margin-top: 30px;
-    padding: 0 5%;
+    padding: 0 5% 70px;
+    height: calc(100vh - 90px);
+    overflow: auto;
 }
