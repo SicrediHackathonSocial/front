@@ -1,15 +1,33 @@
 import React, { Component } from 'react'
 import { DetalhePrincipal, SubObjetivos, Image } from 'app-components'
-
-import EventEmitter from 'sm-event-emitter'
-
-import { Route, Link } from 'react-router-dom'
-import { HeaderActions } from 'app-components'
+import { Redirect } from 'react-router-dom'
 
 import './styles.css'
 
 export class DetalheObjetivoPage extends Component {
+  constructor(props) {
+    super(props)
+
+    if (this.props.location.project) {
+      this.state = {
+        project: this.props.location.project
+      }
+    } else {
+      this.state = {
+        redirectObjetivos: true
+      }
+    }
+  }
+
+  componentDidMount() {
+    console.log(this.state.project)
+  }
+
   render() {
+    if (this.state.redirectObjetivos) {
+      return <Redirect to="/meus-objetivos" />
+    }
+
     return (
       <section className="page-objetivo">
         {
@@ -18,9 +36,9 @@ export class DetalheObjetivoPage extends Component {
           </button>
         }
 
-        <DetalhePrincipal />
+        <DetalhePrincipal project={this.state.project} />
 
-        <SubObjetivos />
+        <SubObjetivos project={this.state.project} />
 
       </section>
     )
