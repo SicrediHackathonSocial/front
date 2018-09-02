@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CurrencyInput from 'react-currency-masked-input'
 import { Image } from 'app-components'
-import { ProjectService } from 'app-services'
+import { ProjectService, GoalService } from 'app-services'
 
 import './styles.css'
 
@@ -19,6 +19,7 @@ export class ProjetoPage extends Component {
       visibility: 'PRIVATE'
     }
 
+    this.goalService = new GoalService()
     this.projectService = new ProjectService()
   }
 
@@ -41,7 +42,7 @@ export class ProjetoPage extends Component {
                 onChange={e => this.inputChanged(e)}
               />
               <label htmlFor="objetivo-pessoal">
-                tenho um projeto pessoal
+                <span>tenho um projeto pessoal</span>
               </label>
             </div>
 
@@ -55,7 +56,7 @@ export class ProjetoPage extends Component {
                 onChange={e => this.inputChanged(e)}
               />
               <label htmlFor="objetivo-familia-amigos">
-                tenho um projeto com família ou amigos
+                <span>tenho um projeto com família ou amigos</span>
               </label>
             </div>
 
@@ -68,7 +69,7 @@ export class ProjetoPage extends Component {
                 id="objetivo-ong"
                 onChange={e => this.inputChanged(e)}
               />
-              <label htmlFor="objetivo-ong">quero ajudar uma ONG</label>
+              <label htmlFor="objetivo-ong"><span>quero ajudar uma ONG</span></label>
             </div>
           </div>
         </div>
@@ -366,8 +367,14 @@ export class ProjetoPage extends Component {
 
     this.projectService.save(obj)
     .then(result => {
-      console.log(result)
+      const newGoals = this.state.goals.map(g => {
+        g.target = parseFloat(g.target.replace(',', '.'))
+        return g
+      })
+
+      return this.goalService.save({idProject: result.data.idProject, goals: newGoals})
     })
+    .then(result => console.log(result))
   }
 
   backStep() {

@@ -16,8 +16,8 @@ localStorage.setItem('userLogado', JSON.stringify({
 
 localStorage.setItem('auth', 'betinho')
 
-  ReactDOM.render((
-    <BrowserRouter>
+ReactDOM.render((
+  <BrowserRouter>
     <App />
   </BrowserRouter>
 ), document.getElementById('root'))
