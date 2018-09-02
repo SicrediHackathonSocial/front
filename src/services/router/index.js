@@ -7,6 +7,13 @@ import {
 export class RouterService {
   static ROUTES = [
     {
+      name: 'Home',
+      path: '/home',
+      icon: 'Home',
+      exact: true,
+      component: HomePage
+    },
+    {
       hideOnMenu: false,
       name: 'Login',
       path: '/login',
@@ -19,13 +26,6 @@ export class RouterService {
       icon: 'Projeto',
       exact: true,
       component: ProjetoPage
-    },
-    {
-      name: 'Home',
-      path: '/home',
-      icon: 'Home',
-      exact: true,
-      component: HomePage
     }
   ]
 }

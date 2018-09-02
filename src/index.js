@@ -10,8 +10,8 @@ import './assets/styles/general.css'
 
   ReactDOM.render((
     <BrowserRouter>
-    <App />
-  </BrowserRouter>
+      <App />
+    </BrowserRouter>
 ), document.getElementById('root'))
 
 registerServiceWorker()
