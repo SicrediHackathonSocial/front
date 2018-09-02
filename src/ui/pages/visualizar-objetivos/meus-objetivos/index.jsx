@@ -37,7 +37,7 @@ export class MeusObjetivosPage extends Component {
               path="/objetivos-compartilhados"
               exact={true}
               children={({ match }) => (
-                <Link onClick={() => emitChangePage("Compartilhados")} match={match} to="/objetivos-compartilhados" label={this.props.label}>
+                <Link onClick={() => emitChangePage("Objetivos Compartilhados")} match={match} to="/objetivos-compartilhados" label={this.props.label}>
                   <div className={match && 'footer-item--active'}>
                     { Image.ICONS.Profile }
                     <span>Compartilhados</span>

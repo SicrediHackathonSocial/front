@@ -97,7 +97,7 @@ export class LoginPage extends Component {
 
   render() {
     if(this.state.redirectHome) {
-      return <Redirect to="/home" />
+      return <Redirect to="/meus-objetivos" />
     }
 
     return (
