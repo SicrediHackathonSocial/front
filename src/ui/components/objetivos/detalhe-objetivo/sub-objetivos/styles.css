@@ -1,0 +1,38 @@
+.sub-objetivos {
+  padding: 0 20px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-objetivos-titulo {
+    width: 100%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 23px;
+    font-size: 16px;
+    text-align: center;
+
+    color: #4C4C4C;
+}
+
+.sub-objetivos-completos,
+.sub-objetivos-pendentes {
+  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sub-objetivos-completos-titulo,
+.sub-objetivos-pendentes-titulo {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 14px;
+    font-size: 10px;
+    text-align: center;
+    
+    color: #4C4C4C;
+}
