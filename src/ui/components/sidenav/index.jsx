@@ -36,7 +36,7 @@ export class Sidenav extends Component {
     })
 
     EventEmitter.on('CHANGE_PAGE_TITLE', () => {
-      this.toggleSidenav()
+      this.hideSidenav()
     })
   }
 
@@ -44,6 +44,12 @@ export class Sidenav extends Component {
     const open = !this.state.open
 
     this.setState({ open })
+  }
+
+  hideSidenav() {
+    this.setState({
+      open: false
+    })
   }
 
   logout() {
