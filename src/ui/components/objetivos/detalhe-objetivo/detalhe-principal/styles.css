@@ -19,6 +19,7 @@
 .detalhe-principal-objetivo-values {
     width: 100%;
     text-align: center;
+    margin-top: 20px;
 }
 
 .detalhe-principal-objetivo-reached,
@@ -87,5 +88,4 @@
     text-align: center;
     display: inline-block;
     margin-top: 0px;
-    margin-bottom: 20px;
 }

@@ -21,7 +21,8 @@ export class DetalhePrincipal extends Component {
 
         this.state = {
             project: this.props.project,
-            showShare: true
+            showShare: true,
+            isShared: this.props.project.type === 'SHARED'
         }
 
         this.projectService = new ProjectService()
@@ -33,19 +34,22 @@ export class DetalhePrincipal extends Component {
     }
 
     renderShare() {
-        if (this.state.showShare) {
-            return (
-                <CopyToClipboard text={'http://localhost:3000/invite/' + this.state.project.id}
+        if (this.state.isShared) {
+
+            if (this.state.showShare) {
+                return (
+                    <CopyToClipboard text={'http://localhost:3000/invite/' + this.state.project.id}
                     onCopy={() => this.setState({ showShare: false })}>
                     <button className="share-text as-link">(compartilhar)</button>
                 </CopyToClipboard>
             )
-        
-        } else {
-            return <span className="share-text">link copiado</span>
+                
+            } else {
+                return <span className="share-text">link copiado</span>
+            }
         }
     }
-
+    
     render() {
         return (
             <div className="detalhe-principal-objetivo">
