@@ -7,10 +7,11 @@ export class GoalService extends BaseService {
   }
 
   inserirValor(inserirValorDto) {
-    this.getHeaders()
+    const config = this.getHeaders()
     console.log(inserirValorDto);
-    
-    inserirValorDto.value = inserirValorDto.value.replace(',', '.')
-    return axios.post(this.baseUrl + '/value', inserirValorDto)
+    if (inserirValorDto) {
+      inserirValorDto.value = inserirValorDto.value.replace(',', '.')
+      return axios.post(this.baseUrl + '/value', inserirValorDto, config)
+    }
   }
 }
