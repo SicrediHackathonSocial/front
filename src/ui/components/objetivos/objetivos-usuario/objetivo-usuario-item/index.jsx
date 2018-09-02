@@ -13,7 +13,7 @@ export const ObjetivoUsuarioItem = ({ totalPercentage, titulo, objetivos }) => {
     return (
         <div className="card-usuario-item">
             <div className="card-percentage">
-                <p className="card-percentage__value">78%</p>
+                <p className="card-percentage__value">{totalPercentage}%</p>
                 <p className="card-percentage__text">Completo</p>
             </div>
             <div className="card-data">
@@ -31,7 +31,7 @@ export const ObjetivoUsuarioItem = ({ totalPercentage, titulo, objetivos }) => {
                 </div>
             </div>
             <div className="card-button-wrapper">
-             <div className="card-button"></div>
+                <div className="card-button"></div>
             </div>
         </div>
     )

@@ -2,7 +2,8 @@ import {
   LoginPage,
   MeusObjetivosPage,
   ObjetivosCompartilhadosPage,
-  ProjetoPage
+  ProjetoPage,
+  DetalheObjetivoPage
 } from 'app-pages'
 
 export class RouterService {
@@ -39,6 +40,12 @@ export class RouterService {
       path: '/fale-conosco',
       exact: true,
       component: MeusObjetivosPage
+    },
+    {
+      name: 'Objetivo',
+      path: '/detalhe-objetivo',
+      exact: true,
+      component: DetalheObjetivoPage
     }
   ]
 }

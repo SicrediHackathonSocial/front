@@ -35,12 +35,6 @@ export class LoginPage extends Component {
     }).then(() => this.setState({ redirectHome: true }));
   }
 
-  renderHeader() {
-    return (
-      <span>ARC</span>
-    )
-  }
-
   renderForm() {
     return (
       <div className="question">
@@ -97,22 +91,23 @@ export class LoginPage extends Component {
 
   render() {
     if(this.state.redirectHome) {
-      return <Redirect to="/home" />
+      return <Redirect to="/meus-objetivos" />
     }
 
     return (
-      <div>
+      <div className="tudo">
+        <div className="tudo__logo-area">
+          <div className="logo"></div>
+        </div>
+        <div className="tudo__nao-logo">
+          {this.renderForm()}
 
-        {this.renderHeader()}
+          {this.renderForgotPassword()}
 
-        {this.renderForm()}
+          {this.renderFooter()}
 
-        {this.renderForgotPassword()}
-
-        {this.renderFooter()}
-
-        {this.renderRegister()}
-
+          {this.renderRegister()}
+        </div>
       </div>
     )
   }
