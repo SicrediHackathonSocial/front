@@ -1,7 +1,7 @@
 import {
   LoginPage,
   HomePage,
-  ObjetivoPage
+  ProjetoPage
 } from 'app-pages'
 
 export class RouterService {
@@ -14,11 +14,11 @@ export class RouterService {
       component: LoginPage
     },
     {
-      name: 'Objetivo',
-      path: '/objetivo',
-      icon: 'Objetivo',
+      name: 'Projeto',
+      path: '/projeto',
+      icon: 'Projeto',
       exact: true,
-      component: ObjetivoPage
+      component: ProjetoPage
     },
     {
       name: 'Home',
