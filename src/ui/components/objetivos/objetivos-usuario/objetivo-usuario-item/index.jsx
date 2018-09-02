@@ -10,19 +10,28 @@ const styleContribuition = (percentage) => ({
         borderRadius: '6px' ,
 })
 
-export const ObjetivoUsuarioItem = ({ titulo, objetivos }) => {
+export const ObjetivoUsuarioItem = ({ totalPercentage, titulo, objetivos }) => {
     return (
         <div className="card-usuario-item">
-            <h1 className="card-usuario-item__titulo">{titulo}</h1>
-            <div className="card-usuario-item__objetivos">
-                { 
-                    objetivos.map((element, key) => (<div className="objetivo__projeto" key={key}>
-                        {
-                            element.contribuitions.map((contribuition, keyb) => 
-                                (<div key={keyb} style={styleContribuition((contribuition.value/element.target)*100)}></div>))
-                        }             
-                    </div>)) 
-                }
+            <div className="card-percentage">
+                <p className="card-percentage__value">78%</p>
+                <p className="card-percentage__text">Completo</p>
+            </div>
+            <div className="card-data">
+                <h1 className="card-usuario-item__titulo">{titulo}</h1>
+                <p className="card-usuario-item__realizados">Objetivos realizados: 8/1</p>
+                <div className="card-usuario-item__objetivos">
+                    { 
+                        objetivos.map((objetivo, key) => (<div className="objetivo__projeto" key={key}>
+                            {
+                                objetivo.contribuitions.map((contribuition, keyb) => 
+                                    (<div key={keyb}>
+                                        <div style={styleContribuition((contribuition.value/objetivo.target)*100)}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </div>
+                                    </div>))
+                            }
+                        </div>))
+                    }
+                </div>
             </div>
         </div>
     )

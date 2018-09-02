@@ -18,7 +18,7 @@ export class ObjetivosUsuario extends Component {
             <div className="objetivos">
                 {
                     this.state.projetos && this.state.projetos.map((proj, key) => 
-                        <ObjetivoUsuarioItem key={key} titulo={proj.title} objetivos={proj.goals}/>)
+                        <ObjetivoUsuarioItem key={key} totalPercentage={(proj.reached/proj.target)*100} titulo={proj.title} objetivos={proj.goals}/>) 
                 } 
             </div>
         )

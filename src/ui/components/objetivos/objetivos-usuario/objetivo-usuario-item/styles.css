@@ -1,13 +1,43 @@
 .card-usuario-item {
     border-radius: 5px;
-    padding: 15px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
+    display: flex;
+}
+
+.card-usuario-item .card-percentage {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-usuario-item .card-usuario-item__realizados {
+    margin: 0;
+    margin-bottom: 5px;
+    font-weight: 300;
+    font-size: 10px;
+}
+.card-usuario-item .card-percentage .card-percentage__value {
+    margin: 0;
+    font-size: 30px;
+}
+
+.card-usuario-item .card-percentage .card-percentage__text {
+    margin: 0;
+    font-size: 12px;
+}
+
+.card-usuario-item .card-data {
+    width: 100%;
+    padding: 20px;
+    border-left: 1px solid #ededed;
 }
 
 .card-usuario-item .card-usuario-item__titulo {
     margin-top: 0;
-    font-size: 22px;
+    font-weight: 400;
+    font-size: 15px;
 }
 
 .card-usuario-item .card-usuario-item__objetivos {
@@ -15,10 +45,10 @@
 }
 
 .card-usuario-item .objetivo__projeto {
-    border-radius: 5px;
+    border-radius: 8px;
     display: flex;
-    padding: 5px;
-    margin: 0 3px;
+    padding: 3px;
+    background: #ededed;
+    margin: 0 1px;
     width: 100%;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
