@@ -3,7 +3,8 @@ import {
   MeusObjetivosPage,
   ObjetivosCompartilhadosPage,
   ProjetoPage,
-  DetalheObjetivoPage
+  DetalheObjetivoPage,
+  InvitePage
 } from 'app-pages'
 
 export class RouterService {
@@ -46,6 +47,13 @@ export class RouterService {
       path: '/detalhe-objetivo',
       exact: true,
       component: DetalheObjetivoPage
+    },
+    {
+      name: 'Convite',
+      path: '/invite/:id',
+      exact: false,
+      component: InvitePage,
+
     }
   ]
 }

@@ -11,6 +11,13 @@ const percent = (v1, v2) => {
     return v2 > 0 ? v1 / v2 * 100 : 0;
 }
 
+const styleContribuition = (percentage) => ({
+    background: '#FCBF49',
+    width: 'calc('+percentage + '% - 1px',
+    height: '5px',
+    borderRadius: '0' ,
+})
+
 export class SubObjetivoPendente extends Component {
     constructor(props) {
         super(props)
@@ -38,6 +45,9 @@ export class SubObjetivoPendente extends Component {
             <div>
             <div className="modal-overlay"></div>
             <div className="modal-content">
+                <div className="detalhe-principal-objetivo-progress-wrapper">
+                    <div style={styleContribuition(percent(this.state.goal.reached, this.state.goal.target))}></div>
+                </div>
                 <div className="modal__x" onClick={() => this.setState({ modalAtiva: false }) }>✕</div>
                 <div className="modal-content__parte-superior">
                     <p className="titulo">
