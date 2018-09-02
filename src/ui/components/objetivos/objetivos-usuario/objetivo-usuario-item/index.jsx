@@ -15,11 +15,11 @@ const percent = (v1, v2) => {
 }
 
 const completed = (project) => {
-    return project.goals.filter(g => g.status === 'CONCLUIDO').length;
+    return project ? project.goals.filter(g => g.status === 'CONCLUIDO').length : 0;
 }
 
 const all = (project) => {
-    return project.goals.length;
+    return project ? project.goals.length : 0;
 }
 
 export const ObjetivoUsuarioItem = ({ project, totalPercentage, titulo, objetivos }) => {
