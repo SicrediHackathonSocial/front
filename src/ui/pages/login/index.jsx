@@ -5,6 +5,11 @@ import { UserService } from 'app-services'
 
 import './styles.css'
 
+const getLinkHome = (id) => ({
+  pathname: '/meus-objetivos',
+  invite: id
+})
+
 export class LoginPage extends Component {
 
   constructor(props) {
@@ -15,8 +20,10 @@ export class LoginPage extends Component {
     this.state = {
       username: '',
       password: '',
-      redirectHome: false
+      redirectHome: false,
+      invite: this.props.location.invite
     }
+
   }
 
   inputChanged(event) {
@@ -91,7 +98,7 @@ export class LoginPage extends Component {
 
   render() {
     if(this.state.redirectHome) {
-      return <Redirect to="/meus-objetivos" />
+      return <Redirect to={getLinkHome(this.state.invite)} />
     }
 
     return (

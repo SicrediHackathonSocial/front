@@ -13,7 +13,7 @@
     font-size: 20px;
     text-align: center;
     color: #000000;
-    margin-bottom: 15px;
+    margin-bottom: 0;
 }
 
 .detalhe-principal-objetivo-values {
@@ -63,4 +63,29 @@
     width: 70%;
     height: 9px;
     border-radius: 6px;
+}
+
+.as-link {
+    background: none !important;
+    color: inherit;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.share-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    font-size: 10px;
+    text-align: center;
+    color: #a8a8a8;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin-top: 0px;
+    margin-bottom: 20px;
 }

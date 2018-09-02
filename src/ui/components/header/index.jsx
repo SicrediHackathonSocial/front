@@ -26,7 +26,7 @@ export class Header extends Component {
     const pathname = window.location.pathname
     const routes = RouterService.ROUTES
     const a = routes.find(r => r.path === pathname)
-    const pageTitle = a.name
+    const pageTitle = a ? a.name : 'ARC'
   
     this.setState({
       pageTitle

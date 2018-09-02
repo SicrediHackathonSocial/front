@@ -5,6 +5,8 @@ import EventEmitter from 'sm-event-emitter'
 
 import { Route, Link } from 'react-router-dom'
 
+import { UserService, ProjectService } from 'app-services'
+
 import './styles.css'
 
 const emitChangePage = label => {
@@ -12,6 +14,33 @@ const emitChangePage = label => {
 }
 
 export class MeusObjetivosPage extends Component {
+  
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      username: '',
+      password: '',
+      redirectHome: false,
+      invite: this.props.location.invite
+    }
+
+    this.userService = new UserService()
+    this.projectService = new ProjectService()
+
+  }
+
+  componentDidMount() {
+
+    if (this.state.invite) {
+      this.projectService
+        .membership(this.state.invite, UserService.getUserLogado().username)
+          .catch(error => {
+            console.log('membership error', error)
+          })
+    }
+  }
+
   render() {
     return (
       <div>
