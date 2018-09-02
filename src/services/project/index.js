@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export class ProjectService extends BaseService {
   constructor() {
-    super('project')
+    super('projects')
   }
 
   saveGoals(idProject, goals) {
