@@ -1,6 +1,7 @@
 import BaseService from '../_base'
 import axios from "axios"
-
+import EventEmitter from 'sm-event-emitter'
+ 
 const localStorageUserLocation = 'userLogado'
 
 export class UserService extends BaseService {
@@ -16,6 +17,12 @@ export class UserService extends BaseService {
     })
 
     return promise
+  }
+
+  logout() {
+    this.setTokenSeguranca(null)
+    this.setUserLocalStorage(null)
+    EventEmitter.emit('USER_LOGOUT')
   }
 
   cadastroUser(userDto) {
@@ -40,8 +47,13 @@ export class UserService extends BaseService {
   }
 
   setUserLocalStorage(user) {
-    user.password = undefined // just in case
+    if (user) {
+      user.password = undefined // just in case
+      user.picture = 'https://static.noticiasaominuto.com.br/stockimages/1920/naom_5a7b1d449168e.jpg?1531755455'
+    } 
+      
     localStorage.setItem(localStorageUserLocation, JSON.stringify(user))
+    EventEmitter.emit('USER_LOGIN')
   }
 
   setTokenSeguranca(token) {

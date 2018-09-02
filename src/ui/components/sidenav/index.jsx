@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import { RouterService } from 'app-services'
 import { Image, Profile } from 'app-components'
 import { NavButton } from './nav-button'
+import EventEmitter from 'sm-event-emitter'
+
+import { UserService } from 'app-services'
 
 import './styles.css'
 
@@ -9,15 +13,38 @@ export class Sidenav extends Component {
   constructor(props) {
     super(props)
 
+    this.userService = new UserService()
+
     this.state = {
       open: false,
+      redirectLogout: false,
+      userLogged: !!UserService.getUserLogado()
     }
+  }
+
+  componentDidMount() {
+    EventEmitter.on('USER_LOGIN', () => {
+      this.setState({
+        userLogged: true
+      })
+    })
+
+    EventEmitter.on('USER_LOGOUT', () => {
+      this.setState({
+        userLogged: false
+      })
+    })
   }
 
   toggleSidenav() {
     const open = !this.state.open
 
     this.setState({ open })
+  }
+
+  logout() {
+    this.userService.logout()
+    this.setState({ redirectLogout: true })
   }
 
   renderIcon() {
@@ -29,6 +56,14 @@ export class Sidenav extends Component {
   }
 
   render() {
+    if(this.state.redirectLogout) {
+      return <Redirect to="/login" />
+    }
+
+    if (!this.state.userLogged) {
+      return null
+    }
+
     return (
       <div className={`sidenav ${this.state.open && 'sidenav--visible'}`}>
         <div className="sidenav__toggler">
@@ -41,6 +76,7 @@ export class Sidenav extends Component {
               <NavButton key={key} to={route.path} activeOnlyWhenExact={route.exact} label={route.name} />
             ),
           )}
+          <li className="sidenav__menu__item"><a href="#" onClick={() => this.logout()}>Logout</a></li>
         </ul>
       </div>
     )
