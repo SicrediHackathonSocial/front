@@ -23,6 +23,10 @@ export class DetalheObjetivoPage extends Component {
     console.log(this.state.project)
   }
 
+  backStep() {
+    window.history.back()
+  }
+
   render() {
     if (this.state.redirectObjetivos) {
       return <Redirect to="/meus-objetivos" />
