@@ -25,7 +25,6 @@ export class RouterService {
       name: 'Meus Objetivos',
       path: '/meus-objetivos',
       exact: true,
-      hideOnMenu: true,
       component: MeusObjetivosPage
     },
     {
