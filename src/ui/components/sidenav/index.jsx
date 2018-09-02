@@ -34,6 +34,10 @@ export class Sidenav extends Component {
         userLogged: false
       })
     })
+
+    EventEmitter.on('CHANGE_PAGE_TITLE', () => {
+      this.toggleSidenav()
+    })
   }
 
   toggleSidenav() {

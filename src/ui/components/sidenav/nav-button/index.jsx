@@ -5,7 +5,7 @@ import EventEmitter from 'sm-event-emitter'
 
 import './styles.css'
 
-const emitChangePage = label => {
+const emitChangePage = (label, onClick) => {
   EventEmitter.emit('CHANGE_PAGE_TITLE', label)
 }
 
