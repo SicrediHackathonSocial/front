@@ -1,0 +1,66 @@
+.detalhe-principal-objetivo {
+    width: 100%;
+    border-bottom: 1px solid #E1E1E1;
+    padding: 35px;
+    justify-content: center;
+}
+
+.detalhe-principal-objetivo-titulo {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    font-size: 20px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.detalhe-principal-objetivo-values {
+    width: 100%;
+    text-align: center;
+}
+
+.detalhe-principal-objetivo-reached,
+.detalhe-principal-objetivo-target {
+    font-family: Roboto;
+    font-style: normal;
+    text-align: center;
+    color: #4C4C4C;
+    display: inline;
+}
+
+.detalhe-principal-objetivo-reached {
+    font-weight: bold;
+    line-height: 27px;
+    font-size: 19px;
+}
+
+.detalhe-principal-objetivo-target {
+    font-weight: 300;
+    line-height: 14px;
+    font-size: 10px;
+}
+
+.detalhe-principal-objetivo-progress {
+    border-radius: 500px;
+    background: #FCBF49;
+    width: 100%;
+    height: 9px;
+}
+
+.detalhe-principal-objetivo-progress-wrapper {
+    border-radius: 8px;
+    display: flex;
+    background: #ededed;
+    margin: 0 1px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.detalhe-principal-objetivo-progress {
+    background: #FCBF49;
+    width: 70%;
+    height: 9px;
+    border-radius: 6px;
+}
