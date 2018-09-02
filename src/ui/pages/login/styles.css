@@ -11,6 +11,44 @@
     justify-content: center;
 }
 
+.footer {
+    padding-bottom: 0 !important;
+}
+
+.tudo {
+    height: calc(100vh - 60px);
+    display: flex;
+    align-items: flex-end;
+}
+
+.tudo__logo-area {
+    height: 30vh;
+    position: fixed;
+    top: 0;
+    background: #2EC4B6;
+    box-shadow: 0px -100px 0px 0px #2EC4B6;
+    width: 100%;
+}
+
+.tudo__logo-area:before {
+    width: 80px;
+    height: 80px;
+    background: #2EC4B6;
+    border-radius: 100%;
+    display: block;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: -30px;
+    content: "";
+}
+
+.tudo__nao-logo {
+    padding-bottom: 50px;
+}
+
 .footer .button-footer {
     border-radius: 500px;
     background: #2EC4B6;
@@ -23,12 +61,13 @@
 }
 
 .as-link {
+    margin-top: 20px;
     background: none !important;
     color: inherit;
     border: none;
     padding: 0 !important;
     font: inherit;
     /*border is optional*/
-    border-bottom: 1px solid #444;
+    text-decoration: underline;
     cursor: pointer;
 }
