@@ -20,6 +20,7 @@
 }
 .card-usuario-item .card-percentage .card-percentage__value {
     margin: 0;
+    color: #003049;
     font-size: 30px;
 }
 
@@ -31,7 +32,22 @@
 .card-usuario-item .card-data {
     width: 100%;
     padding: 20px;
+    padding-right: 10px;
     border-left: 1px solid #ededed;
+}
+
+.card-usuario-item .card-button-wrapper {
+    width: 15%;
+    display: flex;
+    align-items: center;
+}
+
+.card-usuario-item .card-button {
+    width: 14px;
+    height: 14px;
+    border-right: 3px solid #ededed;
+    border-top: 3px solid #ededed;
+    transform: rotate(45deg);
 }
 
 .card-usuario-item .card-usuario-item__titulo {
@@ -47,7 +63,6 @@
 .card-usuario-item .objetivo__projeto {
     border-radius: 8px;
     display: flex;
-    padding: 3px;
     background: #ededed;
     margin: 0 1px;
     width: 100%;

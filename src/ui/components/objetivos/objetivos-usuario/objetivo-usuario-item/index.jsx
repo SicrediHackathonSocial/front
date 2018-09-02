@@ -3,10 +3,9 @@ import React from 'react'
 import './styles.css'
 
 const styleContribuition = (percentage) => ({
-        background: '#13CE66',
+        background: '#FCBF49',
         width: 'calc('+percentage + '% - 1px',
-        height: '4px',
-        margin: '0 1px',
+        height: '9px',
         borderRadius: '6px' ,
 })
 
@@ -25,13 +24,14 @@ export const ObjetivoUsuarioItem = ({ totalPercentage, titulo, objetivos }) => {
                         objetivos.map((objetivo, key) => (<div className="objetivo__projeto" key={key}>
                             {
                                 objetivo.contribuitions.map((contribuition, keyb) => 
-                                    (<div key={keyb}>
-                                        <div style={styleContribuition((contribuition.value/objetivo.target)*100)}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </div>
-                                    </div>))
+                                    (<div key={keyb} style={styleContribuition((contribuition.value/objetivo.target)*100)}></div>))
                             }
                         </div>))
                     }
                 </div>
+            </div>
+            <div className="card-button-wrapper">
+             <div className="card-button"></div>
             </div>
         </div>
     )
