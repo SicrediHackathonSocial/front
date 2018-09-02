@@ -22,11 +22,20 @@ export class DetalhePrincipal extends Component {
         this.state = {
             project: this.props.project,
             showShare: true,
-            isShared: this.props.project.type === 'SHARED'
+            isShared: this.props.project.type === 'SHARED',
+            estimate: null
         }
 
         this.projectService = new ProjectService()
         this.userService = new UserService()
+    }
+
+    componentDidMount() {
+        this.projectService.estimate(this.state.project.id)
+           .then((response) => {
+               const x = response.data.date.split('-');
+               this.setState({ estimate: `${x[2]}/${x[1]}/${x[0]}` })
+            })
     }
 
     share() {
@@ -49,6 +58,14 @@ export class DetalhePrincipal extends Component {
             }
         }
     }
+
+    renderEstimate() {
+        if (this.state.estimate) {
+            return (
+                <span className="share-text">previsão de conclusão em {this.state.estimate}</span>
+            )
+        }
+    }
     
     render() {
         return (
@@ -59,6 +76,7 @@ export class DetalhePrincipal extends Component {
                 <div className="detalhe-principal-objetivo-values">
                     <h2 className="detalhe-principal-objetivo-reached">R$ {this.state.project.reached.toFixed(2)}</h2>
                     <h3 className="detalhe-principal-objetivo-target"> / R$ {this.state.project.target.toFixed(2)}</h3>
+                    {this.renderEstimate()}
                 </div>
 
                 <div className="detalhe-principal-objetivo-progress-wrapper">

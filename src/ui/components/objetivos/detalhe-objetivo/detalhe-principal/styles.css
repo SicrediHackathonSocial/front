@@ -22,6 +22,10 @@
     margin-top: 20px;
 }
 
+.detalhe-principal-objetivo-values .share-text {
+    margin-bottom: 15px;
+}
+
 .detalhe-principal-objetivo-reached,
 .detalhe-principal-objetivo-target {
     font-family: Roboto;
@@ -33,7 +37,7 @@
 
 .detalhe-principal-objetivo-reached {
     font-weight: bold;
-    line-height: 27px;
+    line-height: 15px;
     font-size: 19px;
 }
 
