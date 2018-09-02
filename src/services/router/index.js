@@ -1,18 +1,12 @@
 import {
   LoginPage,
-  HomePage,
+  MeusObjetivosPage,
+  ObjetivosCompartilhadosPage,
   ProjetoPage
 } from 'app-pages'
 
 export class RouterService {
   static ROUTES = [
-    {
-      name: 'Home',
-      path: '/home',
-      icon: 'Home',
-      exact: true,
-      component: HomePage
-    },
     {
       hideOnMenu: false,
       name: 'Login',
@@ -26,6 +20,18 @@ export class RouterService {
       icon: 'Projeto',
       exact: true,
       component: ProjetoPage
+    },
+    {
+      name: 'Meus Objetivos',
+      path: '/meus-objetivos',
+      exact: true,
+      component: MeusObjetivosPage
+    },
+    {
+      name: 'Objetivos Compartilhados',
+      path: '/objetivos-compartilhados',
+      exact: true,
+      component: ObjetivosCompartilhadosPage
     }
   ]
 }

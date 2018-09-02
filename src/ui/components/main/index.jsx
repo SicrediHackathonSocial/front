@@ -13,6 +13,6 @@ export const Main = () => (
       />
     ))}
 
-    <Redirect from="/" to="/home" />
+    <Redirect from="/" to="/meus-objetivos" />
   </Switch>
 )
