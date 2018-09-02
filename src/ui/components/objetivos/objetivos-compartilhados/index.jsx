@@ -6,15 +6,18 @@ export class ObjetivosCompartilhados extends Component {
     constructor(props) {
         super(props)
 
+        this.state = {}
         this.userService = new UserService()
-        this.userService.projetosDoUsuario().then(res => console.log(res))
+        this.userService.projetosCompartilhadosComUsuario().then(res => this.setState({ projetos: res.data }))
     }
 
     render() {
         return (
             <div className="objetivos">
-                <ObjetivoUsuarioItem titulo="Viagem dos amigos" objetivos={[1, 2]}/>    
-                <ObjetivoUsuarioItem titulo="Churrasco domingo" objetivos={[1, 2, 3, 4]}/>    
+                {
+                    this.state.projetos && this.state.projetos.map((proj, key) => 
+                        <ObjetivoUsuarioItem key={key} titulo={proj.title} objetivos={proj.goals}/>)
+                }
             </div>
         )
     }

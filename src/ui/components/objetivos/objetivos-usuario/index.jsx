@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
 import { ObjetivoUsuarioItem } from 'app-components'
+import { UserService } from 'app-services'
 
 import './styles.css'
 
 export class ObjetivosUsuario extends Component {
-    // constructor(props) {
-    //     super(props)
-    // }
+    constructor(props) {
+        super(props)
+
+        this.state = {}
+        this.userService = new UserService()
+        this.userService.projetosDoUsuario().then(res => this.setState({ projetos: res.data }))
+    }
 
     render() {
         return (
             <div className="objetivos">
-                <ObjetivoUsuarioItem titulo="Carro zero!" objetivos={[1, 2]}/>    
-                <ObjetivoUsuarioItem titulo="Viagem para o Uruguai" objetivos={[1, 2, 3, 4]}/>    
-                <ObjetivoUsuarioItem titulo="PC Gamer" objetivos={[1, 2, 3]}/>    
+                {
+                    this.state.projetos && this.state.projetos.map((proj, key) => 
+                        <ObjetivoUsuarioItem key={key} titulo={proj.title} objetivos={proj.goals}/>)
+                } 
             </div>
         )
     }
