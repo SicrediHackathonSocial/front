@@ -1,0 +1,21 @@
+.sub-objetivo-completo {
+  width: 100%;
+  padding: 20px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 8px;
+  
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  font-size: 14px;
+  color: #949494;
+
+  display: flex;
+}
+
+.sub-objetivo-checked {
+  margin-right: 20px;
+}

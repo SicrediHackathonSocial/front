@@ -1,0 +1,12 @@
+.page-objetivo {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 60px);
+  }
+
+  .back-step-button {
+    position: absolute;
+    left: 10px;
+    top: -42px;
+  }
+    

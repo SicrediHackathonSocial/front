@@ -31,7 +31,7 @@ export const ObjetivoUsuarioItem = ({ totalPercentage, titulo, objetivos }) => {
                 </div>
             </div>
             <div className="card-button-wrapper">
-             <div className="card-button"></div>
+                <div className="card-button"></div>
             </div>
         </div>
     )
